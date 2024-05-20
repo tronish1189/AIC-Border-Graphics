@@ -12,7 +12,7 @@
     .flip-card-container {
         display: flex;
         gap: 16px;
-        margin: 32px 0;
+        margin: 12px 0 32px 0;
         flex-wrap: wrap;
     }
 
@@ -24,6 +24,7 @@
         perspective: 1000px;
         height: 400px;
         font-family: "Founders Grotesk Text";
+        cursor: pointer;
     }
 
     .broken-system-graphic-container {
@@ -106,10 +107,15 @@
     .flip-card-text {
         font-size: 12px;
         font-weight: normal;
+        cursor: text;
     }
 
     .flip-card.flipped .flip-card-inner {
         transform: rotateY(180deg);
+    }
+
+    .flip-card.flipped .flip-card-back::before {
+        opacity: 0.9;
     }
 
     .flip-card:hover .flip-card-inner {
@@ -127,6 +133,17 @@
         justify-content: center;
         align-items: center;
     }
+
+    .flip-card-back:before {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        width: 24px;
+        height: 24px;
+        opacity: 0.5;
+        content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"%3F><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="black" d="m72.918 43.75v-6.25c0-12.707-10.207-22.918-22.918-22.918-12.707 0-22.918 10.207-22.918 22.918v6.25h-8.332v33.332h62.5v-33.332zm-20.836 16.043v6.875h-4.168v-6.875c-1.25-0.625-2.082-2.082-2.082-3.543 0-2.293 1.875-4.168 4.168-4.168s4.168 1.875 4.168 4.168c0 1.457-0.83594 2.918-2.0859 3.543zm-2.082-16.043h-14.582v-6.25c0-8.125 6.457-14.582 14.582-14.582s14.582 6.457 14.582 14.582v6.25z"/></svg>');
+    }
+
 
     .flip-card-front {
         color: #010000;
@@ -166,6 +183,37 @@
         background-color: #4A576C;
     }
 
+    .locks {
+        align-items: center;
+        font-family: "Founders Grotesk Text";
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 32px;
+        margin-bottom: 0;
+        display: inline-block
+    }
+
+    .locks svg {
+        margin-left: 0px;
+        opacity: 0.5;
+        position: relative;
+        top: 6px;
+    }
+
+    .locks:hover svg {
+        opacity: 1;
+    }
+
+    .locks.locked svg {
+        opacity: 1;
+    }
+
+
+    .flip-card.locked:hover .flip-card-inner {
+        transform: rotateY(0deg);
+    }
+
+
     @media(max-width:600px) {
         .flip-card {
             margin: 0 auto;
@@ -183,8 +231,13 @@
         <span class="broken-system-graphic-text broken-system-graphic-text--4">Desperate people taking dangerous journeys to the U.S.-Mexico border</span>
         <img class="broken-system-graphic-img" src="Flip Cards/Rec Illustrations_for web-01.svg" alt="">
     </div>
+    <span data-lock-target="orange" class="locks">Lock Cards
+        <svg width="24px" height="24px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#D68860" d="m72.918 43.75v-6.25c0-12.707-10.207-22.918-22.918-22.918-12.707 0-22.918 10.207-22.918 22.918v6.25h-8.332v33.332h62.5v-33.332zm-20.836 16.043v6.875h-4.168v-6.875c-1.25-0.625-2.082-2.082-2.082-3.543 0-2.293 1.875-4.168 4.168-4.168s4.168 1.875 4.168 4.168c0 1.457-0.83594 2.918-2.0859 3.543zm-2.082-16.043h-14.582v-6.25c0-8.125 6.457-14.582 14.582-14.582s14.582 6.457 14.582 14.582v6.25z" />
+        </svg>
+    </span>
     <div class="flip-card-container">
-        <div class="flip-card flip-card--orange">
+        <div class="flip-card flip-card--orange" data-lock-cat="orange">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -198,36 +251,17 @@
                     </div>
                 </div>
                 <div class="flip-card-back">
-                    <p class="flip-card-text">When migrants are
-                        released to navigate the
-                        asylum system, many of
-                        them end up in an
-                        unfamiliar location in an
-                        unfamiliar country and
-                        unable to properly
-                        navigate the
-                        complicated asylum
-                        system. If they fail to
-                        appear for a court
-                        hearing, even by
-                        accident, they can be
-                        ordered deported. If
-                        they miss an ICE
-                        check-in, they may end
-                        up sent to a detention
-                        center.</p>
+                    <p class="flip-card-text">When migrants are released to navigate the asylum system, many of them end up in an unfamiliar location in an unfamiliar country and unable to properly navigate the complicated asylum system. If they fail to appear for a court hearing, even by accident, they can be ordered deported. If they miss an ICE check-in, they may end up sent to a detention center.</p>
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--orange">
+        <div class="flip-card flip-card--orange" data-lock-cat="orange">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
                         <h2 class="flip-card-title">Solution</h2>
                         <img class="flip-card-img" src="Flip Cards/Rec Illustrations_for web-03.svg" alt="Avatar">
-                        <p class="flip-card-text">The Department of Homeland
-                            Security partners with local
-                            nonprofits</p>
+                        <p class="flip-card-text" id="text">The Department of Homeland Security partners with<br> local nonprofits</p>
                     </div>
                 </div>
                 <div class="flip-card-back">
@@ -248,7 +282,7 @@
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--orange">
+        <div class="flip-card flip-card--orange" data-lock-cat="orange">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -256,7 +290,7 @@
                         <img class="flip-card-img" src="Flip Cards/Rec Illustrations_for web-04.svg" alt="Avatar">
                         <p class="flip-card-text">Migrants will be able to
                             better navigate the
-                            complicated asylum process</p>
+                            complicated<br> asylum process</p>
                     </div>
                 </div>
                 <div class="flip-card-back">
@@ -269,19 +303,18 @@
                         spreading services
                         across a broader
                         coalition of
-                        organizations, many of
-                        whom have indicated
-                        that the primary
-                        obstacle they face
-                        towards expanding case
-                        management services is
-                        lack of funding.</p>
+                        organizations.</p>
                 </div>
             </div>
         </div>
     </div>
+    <span data-lock-target="blue" class="locks">Lock Cards
+        <svg width="24px" height="24px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#7C9AD8" d="m72.918 43.75v-6.25c0-12.707-10.207-22.918-22.918-22.918-12.707 0-22.918 10.207-22.918 22.918v6.25h-8.332v33.332h62.5v-33.332zm-20.836 16.043v6.875h-4.168v-6.875c-1.25-0.625-2.082-2.082-2.082-3.543 0-2.293 1.875-4.168 4.168-4.168s4.168 1.875 4.168 4.168c0 1.457-0.83594 2.918-2.0859 3.543zm-2.082-16.043h-14.582v-6.25c0-8.125 6.457-14.582 14.582-14.582s14.582 6.457 14.582 14.582v6.25z" />
+        </svg>
+    </span>
     <div class="flip-card-container">
-        <div class="flip-card flip-card--blue">
+        <div class="flip-card flip-card--blue" data-lock-cat="blue">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -303,8 +336,8 @@
                         number of migrants to
                         settle in only a few
                         cities across the United
-                        States Migrants who
-                        chose these cities
+                        States. Migrants who
+                        choose these cities
                         based on false ideas
                         about what awaits them
                         can end up homeless or
@@ -312,7 +345,7 @@
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--blue">
+        <div class="flip-card flip-card--blue" data-lock-cat="blue">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -328,27 +361,17 @@
                         Migration Coordination
                         (CMC) could coordinate
                         with cities and local
-                        governments to match
-                        migrants with a location
-                        that has the resources
-                        to accommodate new
-                        arrivals. This way, cities
-                        and local government
-                        can share the benefits
-                        and costs of recent
-                        migration.</p>
+                        governments to match migrants with a location that seeks growth and has the resources to accommodate new arrivals.” Want to make sure we highlight the benefits to participating communities.</p>
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--blue">
+        <div class="flip-card flip-card--blue" data-lock-cat="blue">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
                         <h2 class="flip-card-title">Result</h2>
                         <img class="flip-card-img" src="Flip Cards/Rec Illustrations_for web-07.svg" alt="Avatar">
-                        <p class="flip-card-text">Migrants go to welcoming
-                            communities throughout
-                            the United States.</p>
+                        <p class="flip-card-text">Migrants go to welcoming communities throughout the<br> United States.</p>
                     </div>
                 </div>
                 <div class="flip-card-back">
@@ -367,8 +390,13 @@
             </div>
         </div>
     </div>
+    <span data-lock-target="gray" class="locks">Lock Cards
+        <svg width="24px" height="24px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4D576B" d="m72.918 43.75v-6.25c0-12.707-10.207-22.918-22.918-22.918-12.707 0-22.918 10.207-22.918 22.918v6.25h-8.332v33.332h62.5v-33.332zm-20.836 16.043v6.875h-4.168v-6.875c-1.25-0.625-2.082-2.082-2.082-3.543 0-2.293 1.875-4.168 4.168-4.168s4.168 1.875 4.168 4.168c0 1.457-0.83594 2.918-2.0859 3.543zm-2.082-16.043h-14.582v-6.25c0-8.125 6.457-14.582 14.582-14.582s14.582 6.457 14.582 14.582v6.25z" />
+        </svg>
+    </span>
     <div class="flip-card-container">
-        <div class="flip-card flip-card--gray">
+        <div class="flip-card flip-card--gray" data-lock-cat="gray">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -381,7 +409,7 @@
                 <div class="flip-card-back">
                     <p class="flip-card-text">Communities
                         throughout the country
-                        struggle with lack of
+                        struggle with a lack of
                         workers, despite many
                         people wanting to
                         immigrate to the U.S..
@@ -400,7 +428,7 @@
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--gray">
+        <div class="flip-card flip-card--gray" data-lock-cat="gray">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -432,7 +460,7 @@
                 </div>
             </div>
         </div>
-        <div class="flip-card flip-card--gray">
+        <div class="flip-card flip-card--gray" data-lock-cat="gray">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="flip-card-front-inner">
@@ -483,6 +511,95 @@
             return (('ontouchstart' in window) ||
                 (navigator.maxTouchPoints > 0) ||
                 (navigator.msMaxTouchPoints > 0));
+        }
+
+        lockCards();
+        function lockCards() {
+            const lockElements = document.querySelectorAll("[data-lock-target]");
+
+            lockElements.forEach((el) => {
+                el.addEventListener("click", () => {
+                    const color = el.getAttribute("data-lock-target");
+                    console.log(color)
+                    const cards = document.querySelectorAll("[data-lock-cat='" + color + "']")
+                    if (el.classList.contains("locked")) {
+                        el.classList.remove("locked");
+                        cards.forEach((card) => {
+                            card.classList.remove("locked");
+                        })
+                    } else {
+                        el.classList.add("locked");
+                        cards.forEach((card) => {
+                            card.classList.add("locked");
+                        });
+                    }
+                })
+            })
+        }
+
+        const text = document.querySelector("#text");
+
+        avoidBastardWord(text);
+
+        function avoidBastardWord(text_element) {
+            var string = text_element.text();
+            var parent = text_element.parent();
+            var parent_width = parent.width();
+            var parent_height = parent.height();
+
+            // determine how many lines the text is split into
+            var lines = parent_height / getLineHeight(text_element.parent()[0]);
+
+            // if the text element width is less than the parent width,
+            // there may be a widow
+            if (text_element.width() < parent_width) {
+                // find the last word of the entire text
+                var last_word = text_element.text().split(' ').pop();
+
+                // remove it from our text, creating a temporary string
+                var temp_string = string.substring(0, string.length - last_word.length - 1);
+
+                // set the new one-word-less text string into our element
+                text_element.text(temp_string);
+
+                // check lines again with this new text with one word less
+                var new_lines = parent.height() / getLineHeight(text_element.parent()[0]);
+
+                // if now there are less lines, it means that word was a widow
+                if (new_lines != lines) {
+                    // separate each word
+                    temp_string = string.split(' ');
+
+                    // put a space before the second word from the last
+                    // (the one before the widow word)
+                    temp_string[temp_string.length - 2] = '<br>' + temp_string[temp_string.length - 2];
+
+                    // recreate the string again
+                    temp_string = temp_string.join(' ');
+
+                    // our element html becomes the string
+                    text_element.html(temp_string);
+                }
+                else {
+                    // put back the original text into the element
+                    text_element.text(string);
+                }
+
+            }
+
+        }
+
+        // taken from
+        // http://stackoverflow.com/questions/4392868/javascript-find-divs-line-height-not-css-property-but-actual-line-height/4515470#4515470
+
+        function getLineHeight(element) {
+            var temp = document.createElement(element.nodeName);
+            temp.setAttribute("style", "margin:0px;padding:0px;font-family:" + element.style.fontFamily + ";font-size:" + element.style.fontSize);
+            temp.innerHTML = "test";
+            temp = element.parentNode.appendChild(temp);
+            var ret = temp.clientHeight;
+            temp.parentNode.removeChild(temp);
+            return ret;
         }
 
     </script>
