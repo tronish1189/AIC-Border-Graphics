@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .flip-card-container {
+        display: flex;
+        gap: 16px;
+        margin: 32px 0;
+        flex-wrap: wrap;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 33.3333333%;
+        max-width: 300px;
+        flex-basis: 33.33333%;
+        perspective: 1000px;
+        height: 400px;
+        font-family: "Founders Grotesk Text";
+    }
+
+    .broken-system-graphic-container {
+        background: #E7F4F8;
+        position: relative;
+        width: 600px;
+    }
+
+    .broken-system-graphic-text {
+        font-family: "Founders Grotesk Text";
+        position: absolute;
+        display: block;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .broken-system-graphic-text--title {
+        font-weight: bold;
+        top: 82px;
+        left: 124px;
+        text-transform: uppercase;
+        font-size: 21px;
+    }
+
+    .broken-system-graphic-text--1 {
+        top: 563px;
+        left: 86px;
+    }
+
+    .broken-system-graphic-text--2 {
+        top: 174px;
+        left: 375px;
+        max-width: 150px;
+    }
+
+
+    .broken-system-graphic-text--3 {
+        top: 395px;
+        left: 374px;
+        max-width: 150px;
+    }
+
+    .broken-system-graphic-text--4 {
+        top: 596px;
+        left: 374px;
+        max-width: 150px;
+    }
+
+    .broken-system-graphic-img {
+        width: 600px;
+    }
+
+    .flip-card-inner,
+    .flip-card-front,
+    .flip-card-back {
+        border-radius: 80px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card-title {
+        text-transform: uppercase;
+        font-size: 16px;
+        margin-top: 24px;
+    }
+
+    .flip-card-img {
+        max-width: 100%;
+        width: 200px;
+        height: 200px;
+    }
+
+    .flip-card-text {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flip-card-front {
+        color: #010000;
+    }
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+        color: white;
+    }
+
+    .flip-card-text {
+        padding-inline: 18px;
+        font-size: 16px;
+    }
+
+    .flip-card--orange .flip-card-front {
+        background-color: #FADCB4;
+    }
+
+    .flip-card--orange .flip-card-back {
+        background-color: #E3825B;
+    }
+
+    .flip-card--blue .flip-card-front {
+        background-color: #AFC9F1;
+    }
+
+    .flip-card--blue .flip-card-back {
+        background-color: #749BDB;
+    }
+
+    .flip-card--gray .flip-card-front {
+        background-color: #AEBACE;
+    }
+
+    .flip-card--gray .flip-card-back {
+        background-color: #4A576C;
+    }
+
+    @media(max-width:600px) {
+        .flip-card {
+            margin: 0 auto;
+            flex-basis: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="broken-system-graphic-container">
+        <span class="broken-system-graphic-text broken-system-graphic-text--title">Problem</span>
+        <span class="broken-system-graphic-text broken-system-graphic-text--1">An immigration system that hasn’t been updated since 1990</span>
+        <span class="broken-system-graphic-text broken-system-graphic-text--2">Escalating case backlogs</span>
+        <span class="broken-system-graphic-text broken-system-graphic-text--3">Lack of workers and missing global talent</span>
+        <span class="broken-system-graphic-text broken-system-graphic-text--4">Desperate people taking dangerous journeys to the U.S.-Mexico border</span>
+        <img class="broken-system-graphic-img" src="/Flip Cards/Rec Illustrations_for web-01.svg" alt="">
+    </div>
+    <div class="flip-card-container">
+        <div class="flip-card flip-card--orange">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Problem</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-02.svg" alt="Avatar">
+                        <p class="flip-card-text">Without assistance, many
+                            migrants struggle with finding
+                            legal counsel and
+                            understanding what resources
+                            are available to them.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">When migrants are
+                        released to navigate the
+                        asylum system, many of
+                        them end up in an
+                        unfamiliar location in an
+                        unfamiliar country and
+                        unable to properly
+                        navigate the
+                        complicated asylum
+                        system. If they fail to
+                        appear for a court
+                        hearing, even by
+                        accident, they can be
+                        ordered deported. If
+                        they miss an ICE
+                        check-in, they may end
+                        up sent to a detention
+                        center.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--orange">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Solution</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-03.svg" alt="Avatar">
+                        <p class="flip-card-text">The Department of Homeland
+                            Security partners with local
+                            nonprofits</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">DHS should expand
+                        access to
+                        community-based NGO
+                        case-management
+                        services and implement
+                        a more flexible system
+                        that works with local
+                        community
+                        organizations. This will
+                        help newly-arrived
+                        migrants better
+                        navigate the unique
+                        challenges presented in
+                        each location.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--orange">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Result</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-04.svg" alt="Avatar">
+                        <p class="flip-card-text">Migrants will be able to
+                            better navigate the
+                            complicated asylum process</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">Shifting case
+                        management support
+                        to nonprofit
+                        organizations will
+                        alleviate issues with
+                        high caseloads by
+                        spreading services
+                        across a broader
+                        coalition of
+                        organizations, many of
+                        whom have indicated
+                        that the primary
+                        obstacle they face
+                        towards expanding case
+                        management services is
+                        lack of funding.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card-container">
+        <div class="flip-card flip-card--blue">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Problem</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-05.svg" alt="Avatar">
+                        <p class="flip-card-text">Cities are overwhelmed
+                            with large influxes of
+                            migrants from the
+                            southern border.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">Word of mouth;
+                        generous housing
+                        benefits available in
+                        cities like New York; and
+                        free Texas buses lead
+                        an overwhelming
+                        number of migrants to
+                        settle in only a few
+                        cities across the United
+                        States Migrants who
+                        chose these cities
+                        based on false ideas
+                        about what awaits them
+                        can end up homeless or
+                        stuck in limbo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--blue">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Solution</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-06.svg" alt="Avatar">
+                        <p class="flip-card-text">Create a federal Center for
+                            Migration Coordination
+                            (CMC).</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">The Center for
+                        Migration Coordination
+                        (CMC) could coordinate
+                        with cities and local
+                        governments to match
+                        migrants with a location
+                        that has the resources
+                        to accommodate new
+                        arrivals. This way, cities
+                        and local government
+                        can share the benefits
+                        and costs of recent
+                        migration.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--blue">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Result</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-07.svg" alt="Avatar">
+                        <p class="flip-card-text">Migrants go to welcoming
+                            communities throughout
+                            the United States.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">Congress could fund
+                        the CMC to establish
+                        integration centers
+                        that would help
+                        migrants learn English,
+                        acquire new job skills,
+                        navigate local
+                        bureaucracy, and
+                        understand the
+                        immigration court
+                        process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card-container">
+        <div class="flip-card flip-card--gray">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Problem</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-08.svg" alt="Avatar">
+                        <p class="flip-card-text">We need to update our legal
+                            immigration system</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">Communities
+                        throughout the country
+                        struggle with lack of
+                        workers, despite many
+                        people wanting to
+                        immigrate to the U.S..
+                        This has led to
+                        escalating backlogs and
+                        desperate people taking
+                        dangerous journeys to
+                        the US-Mexico border.
+                        Without robust
+                        immigration, we risk
+                        losing out to other
+                        countries who have
+                        become top
+                        destinations for the
+                        best and the brightest.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--gray">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Solution</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-09.svg" alt="Avatar">
+                        <p class="flip-card-text">A twofold strategy to
+                            increase pathways for legal
+                            immigration.</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">Congress should create
+                        more temporary worker
+                        programs that would allow
+                        people to travel to the U.S.
+                        to work legally. This would
+                        include strong worker
+                        protections.<br><br>
+                        The government should
+                        maintain and expand
+                        targeted parole programs.
+                        These pathways for
+                        humanitarian immigration
+                        give migrants a way to
+                        access the U.S. without
+                        having to cross the
+                        southern border and seek
+                        asylum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card flip-card--gray">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="flip-card-front-inner">
+                        <h2 class="flip-card-title">Result</h2>
+                        <img class="flip-card-img" src="/Flip Cards/Rec Illustrations_for web-10.svg" alt="Avatar">
+                        <p class="flip-card-text">Reduced irregular migration
+                            and a boost to the U.S.
+                            economy</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <p class="flip-card-text">At a time of significant
+                        labor shortages in the
+                        United States,
+                        expanding access to
+                        legal immigration would
+                        be a strong net benefit
+                        to the economy.
+                        Without congressional
+                        action, there is only so
+                        much that any one
+                        president can do.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        flipCardsOnMobile();
+        function flipCardsOnMobile() {
+            if (isTouchDevice) {
+                const flipCards = document.querySelectorAll('.flip-card');
+
+                flipCards.forEach((card) => {
+                    card.addEventListener("click", () => {
+                        if (card.classList.contains("flipped")) {
+                            card.classList.remove("flipped");
+                        } else {
+                            card.classList.add("flipped");
+                        }
+                    })
+                })
+            }
+        }
+
+        function isTouchDevice() {
+            return (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0));
+        }
+
+    </script>
+
+</body>
+
+</html>
